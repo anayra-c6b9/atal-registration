@@ -5,24 +5,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http"
 import { LoadingBarModule } from '@ngx-loading-bar/core';
-import { RegisterComponent } from './register/register.component';
-import { FormComponent } from './form/form.component';
-import { RegisterationFormComponent } from './registeration-form/registeration-form.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { RegistrationHomeComponent } from './registration-home/registration-home.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    FormComponent,
-    RegisterationFormComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    LoginComponent,
+    RegistrationFormComponent,
+    RegistrationHomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LoadingBarModule
+    LoadingBarModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
