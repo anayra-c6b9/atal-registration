@@ -3,12 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { HomeComponent } from './home/home.component';
 import { ReportComponent } from './report/report.component';
+import { ParticipantComponent } from './participant/participant.component';
 
 const routes: Routes = [
   {
     path: "",
     component: AdminNavComponent,
     children: [
+      {
+        path: "",
+        redirectTo: "home",
+        pathMatch: "full"
+      },
       {
         path: "home",
         component: HomeComponent
@@ -18,9 +24,8 @@ const routes: Routes = [
         component: ReportComponent
       },
       {
-        path: "",
-        redirectTo: "home",
-        pathMatch: "full"
+        path: ":report/:participant",
+        component: ParticipantComponent
       }
     ]
   }

@@ -5,17 +5,21 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { HomeComponent } from './home/home.component';
 import { ReportComponent } from './report/report.component';
+import { ParticipantComponent } from './participant/participant.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AdminNavComponent,
     HomeComponent,
-    ReportComponent
+    ReportComponent,
+    ParticipantComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

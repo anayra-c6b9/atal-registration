@@ -1,16 +1,21 @@
 <section class="w-full md:h-[360px] flex flex-row items-center">
-    <div class="w-0 lg:w-[55%] h-full object-cover">
+    <div class="w-0 lg:w-[55%] h-full object-cover hidden lg:block">
         <img src="assets/sonada-image.jpg" class="h-full" alt="sonada image">
     </div>
-    <div class="w-full lg:w-[45%] lg:py-12 lg:px-7 flex flex-col justify-center items-center sans">
-        <div class="font-normal text-3xl mb-6">Register Now</div>
+    <div class="w-full px-6 py-4 lg:w-[45%] lg:py-12 lg:px-7 flex flex-col justify-center items-center sans">
+        <div class="font-normal text-3xl mb-2">Register Now</div>
         <div class="w-full">
-            <div class="w-full py-3 px-4 bg-[#D72459] text-wrap text-center text-white font-medium rounded-2xl" [routerLink]="cslink">
+            <ng-template ngFor let-event [ngForOf]="eventData" let-i="index" [ngForTrackBy]="trackFn">
+                <div [class]="((i%2 === 0) ? 'bg-[#58B9FF] ' : 'bg-[#D72459] ') + 'w-full py-3 px-4 text-wrap text-center text-white font-medium rounded-2xl mt-4 cursor-pointer'" [routerLink]="event.link">
+                    {{event.event_name}}
+                </div>
+            </ng-template>
+            <!-- <div class="w-full py-3 px-4 bg-[#D72459] text-wrap text-center text-white font-medium rounded-2xl" [routerLink]="cslink">
                 Artificial Intelligence and Cyber Security
             </div>
             <div class="w-full py-3 px-4 bg-[#58B9FF] text-wrap text-center text-white font-medium rounded-2xl mt-4" [routerLink]="bbalink">
                 Coastal and Marine Tourism: Opportunities, Challenges and Environmental Concern
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

@@ -1,7 +1,12 @@
 <section class="w-full flex flex-col gap-8 justify-center items-center sans p-7">
     <div class="text-2xl font-light">View Report</div>
     <div class="w-full flex flex-col lg:flex-row justify-center items-baseline gap-6">
-        <button class="w-1/2 px-5 py-3 text-white font-medium bg-[#D72459] rounded-2xl" [routerLink]="pathcollection[0]">Artificial Intelligence and Cyber Security</button>
-        <button class="w-1/2 px-5 py-3 text-white font-medium bg-[#58B9FF] rounded-2xl" [routerLink]="pathcollection[1]">Coastal and Marine Tourism: Opportunities, Challenges and Environmental Concern</button>
+        <!-- <button class="w-1/2 px-5 py-3 text-white font-medium bg-[#D72459] rounded-2xl" [routerLink]="pathcollection[0]">Artificial Intelligence and Cyber Security</button>
+        <button class="w-1/2 px-5 py-3 text-white font-medium bg-[#58B9FF] rounded-2xl" [routerLink]="pathcollection[1]">Coastal and Marine Tourism: Opportunities, Challenges and Environmental Concern</button> -->
+        <ng-template ngFor let-event [ngForOf]="eventData" let-i="index" [ngForTrackBy]="trackFn">
+            <button [class]="((i%2 === 0) ? 'bg-[#58B9FF] ' : 'bg-[#D72459] ') + 'w-1/2 px-5 py-3 text-white font-medium rounded-2xl'" [routerLink]="event.link">
+                {{event.event_name}}
+            </button>
+        </ng-template>
     </div>
 </section>

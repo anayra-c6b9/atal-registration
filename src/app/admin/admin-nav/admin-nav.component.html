@@ -3,8 +3,12 @@
         <!-- <div class="lg:w-32 lg:pb-32 h-0 object-contain overflow-hidden">
             <img src="assets/salesian-logo.png" alt="salesian logo" class="lg:max-h-32 mx-auto">
         </div> -->
-        <div class="text-white sans font-medium text-xl my-auto">
+        <div class="text-white sans font-medium text-xl my-auto mr-4 cursor-pointer" [routerLink]="['/admin/home']">
             Home
+        </div>
+        <div class="text-white">|</div>
+        <div class="text-white sans font-medium text-xl my-auto ml-4 cursor-pointer" (click)="onLogout()">
+            Logout
         </div>
     </nav>
     <div class="w-full rounded-2xl mt-12 card overflow-hidden">

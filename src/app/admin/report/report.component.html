@@ -1,7 +1,7 @@
 <section class="w-full flex flex-col gap-8 justify-center items-center sans p-7">
     <div class="text-2xl font-light">ARTIFICIAL INTELLIGENCE AND CYBER SECURITY</div>
     <div class="w-full flex justify-end">
-        <button class="outline-none text-white px-4 py-3 font-medium rounded-lg tracking-wider bg-[#40C83D]">To Excel</button>
+        <button class="outline-none text-white px-4 py-3 font-medium rounded-lg tracking-wider bg-[#40C83D]" (click)="onExportToExcel()">To Excel</button>
     </div>
     <div class="w-full border border-4 border-gray-500 rounded-2xl overflow-hidden">
         <table class="w-full table-auto text-left text-sm ">
@@ -12,19 +12,25 @@
                     <th class="border border-gray-400 px-1 py-2 text-gray-800">Institution
                     </th>
                     <th  class="border border-gray-400 px-1 py-2 text-gray-800">Department</th>
-                    <th class="border border-gray-400 px-1 py-2 text-gray-800" >Contact No.</th>
+                    <th class="border border-gray-400 px-1 py-2 text-gray-800" >Email</th>
                     <th class="border border-gray-400 px-1 py-2 text-gray-800" >Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="border border-gray-400 px-1 py-2 text-gray-800">1</td>
-                    <td class="border border-gray-400 px-1 py-2 text-gray-800">Aryan</td>
-                    <td class="border border-gray-400 px-1 py-2 text-gray-800">North Bengal University</td>
-                    <td class="border border-gray-400 px-1 py-2 text-gray-800">Computer</td>
-                    <td class="border border-gray-400 px-1 py-2 text-gray-800">3948918404</td>
-                    <td class="border border-gray-400 px-1 py-2 text-gray-800">View</td>
-                </tr>
+                <ng-template ngFor let-participant [ngForOf]="participantList" let-i="index" [ngForTrackBy]="trackFn">
+                    <tr>
+                        <td class="border border-gray-400 px-1 py-2 text-gray-800">{{i+1}}</td>
+                        <td class="border border-gray-400 px-1 py-2 text-gray-800">{{participant.name}}</td>
+                        <td class="border border-gray-400 px-1 py-2 text-gray-800">{{participant.institute}}</td>
+                        <td class="border border-gray-400 px-1 py-2 text-gray-800">{{participant.department}}</td>
+                        <td class="border border-gray-400 px-1 py-2 text-gray-800">{{participant.email}}</td>
+                        <td class="border border-gray-400 px-1 py-2 text-gray-800 text-center">
+                            <button class="px-2 text-white bg-[#58B9FF] rounded-xl" [routerLink]="['./'+participant._id]">View</button>
+                            <button class="px-2 text-white ml-3 bg-[#D72459] rounded-xl" (click)="onDeleteParticipantDelete(participant._id)">Remove</button>
+                        </td>
+                    </tr>
+                </ng-template>
+                
             </tbody>
         </table>
     </div>

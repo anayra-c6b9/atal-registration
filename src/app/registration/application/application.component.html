@@ -1,13 +1,13 @@
-<section class="w-full py-7 px-12 flex flex-col justify-center items-center">
-        <div class="text-2xl font-light">
-            ARTIFICIAL INTELLIGENCE AND CYBER SECURITY
+<section class="w-full py-7 px-6 lg:px-12 flex flex-col justify-center items-center">
+        <div class="text-2xl font-normal text-center">
+            {{ eventName }}
         </div>
-        <div class="text-xl font-light">
+        <div class="text-base mt-2 lg:mt-0 lg:text-xl font-light text-center">
             From 22nd to 27th July, 2024
         </div>
-        <form class="mt-8 w-full flex flex-col gap-8" [formGroup]="registrationForm" (submit)="onSubmitHandler($event)">
-            <div class="flex flex-row gap-8">
-                <div class="flex flex-col  sans text-base w-1/6 gap-2">
+        <form class="mt-8 w-full flex flex-col gap-4 lg:gap-8" [formGroup]="registrationForm" (submit)="onSubmitHandler($event)">
+            <div class="flex flex-col lg:flex-row gap-4 lg:gap-8">
+                <div class="flex flex-col sans text-base w-2/3 lg:w-1/6 gap-2">
                     <label for="prefix" class="font-medium">Prefix</label>
                     <select type="text" class="bg-gray-100 w-full rounded-lg px-4 py-2" id="prefix" formControlName="prefix">
                         <option value="Mr.">Mr.</option>
@@ -19,7 +19,7 @@
                         <span *ngIf="registrationForm.controls['prefix'].touched && registrationForm.get('prefix')?.errors?.['required']">Prefix required</span>
                     </div>
                 </div>
-                <div class="flex flex-col  sans text-base w-5/6 gap-2">
+                <div class="flex flex-col  sans text-base w-full lg:w-5/6 gap-2">
                     <label for="name" class="font-medium">Name</label>
                     <input type="text" class="bg-gray-100 w-full rounded-lg px-4 py-2" id="name" formControlName="name">
                     <div class="text-rose-600">
@@ -29,8 +29,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row gap-8">
-                <div class="flex flex-col  sans text-base w-3/6 gap-2">
+            <div class="flex flex-col lg:flex-row gap-4 lg:gap-8">
+                <div class="flex flex-col  sans text-base w-full lg:w-3/6 gap-2">
                     <label for="institution" class="font-medium">Institution</label>
                     <input type="text" class="bg-gray-100 w-full rounded-lg px-4 py-2" id="institution" formControlName="institution">
                     <div class="text-rose-600">
@@ -39,7 +39,7 @@
                         <span *ngIf="registrationForm.controls['institution'].touched && registrationForm.get('institution')?.errors?.['minlength']">Institution name too short</span>
                     </div>
                 </div>
-                <div class="flex flex-col  sans text-base w-3/6 gap-2">
+                <div class="flex flex-col  sans text-base w-full lg:w-3/6 gap-2">
                     <label for="department" class="font-medium">Department</label>
                     <input type="text" class="bg-gray-100 w-full rounded-lg px-4 py-2" id="department" formControlName="department">
                     <div class="text-rose-600">
@@ -49,8 +49,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row gap-8">
-                <div class="flex flex-col  sans text-base w-3/6 gap-2">
+            <div class="flex flex-col lg:flex-row gap-4 lg:gap-8">
+                <div class="flex flex-col  sans text-base w-full lg:w-3/6 gap-2">
                     <label for="contact" class="font-medium">Contact No.</label>
                     <input type="number" class="bg-gray-100 w-full rounded-lg px-4 py-2" id="contact" formControlName="contact">
                     <div class="text-rose-600">
@@ -59,7 +59,7 @@
                         <span *ngIf="registrationForm.controls['contact'].touched && registrationForm.get('contact')?.errors?.['min']">Mobile no. requires 10 digits</span>
                     </div>
                 </div>
-                <div class="flex flex-col  sans text-base w-3/6 gap-2">
+                <div class="flex flex-col  sans text-base w-full lg:w-3/6 gap-2">
                     <label for="mail" class="font-medium">Email</label>
                     <input type="email" class="bg-gray-100 w-full rounded-lg px-4 py-2" id="mail" formControlName="email">
                     <div class="text-rose-600">
@@ -80,7 +80,7 @@
                 <input type="checkbox" id="cb" formControlName="checked" checked><label for="cb">I here by declare that all the information provided above is genuine. I understand that if my information is found to be incorrect my registration will be nullified.</label>
             </div>
             <div class="w-full flex justify-end">
-                <button type="submit" [class]="(!registrationForm.valid ? 'bg-gray-600 ' : 'bg-[#40C83D] ' ) + 'outline-none text-white px-4 py-3 font-medium rounded-lg tracking-wider'" [disabled]="!registrationForm.valid">Submit</button>
+                <button type="submit" [class]="(!registrationForm.valid ? 'bg-gray-600 ' : 'bg-[#40C83D] ' ) + 'outline-none text-white px-4 py-3 font-medium rounded-lg tracking-wider'" [disabled]="!registrationForm.valid || !submissionFlag">{{submissionFlag ? "Submit" : "Submitting..."}}</button>
             </div>
         </form>
 </section>

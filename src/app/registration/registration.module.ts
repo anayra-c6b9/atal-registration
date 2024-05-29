@@ -6,13 +6,15 @@ import { HomeComponent } from './home/home.component';
 import { ApplicationComponent } from './application/application.component';
 import { TemplateComponent } from './template/template.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SuccessComponent } from './success/success.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     ApplicationComponent,
-    TemplateComponent
+    TemplateComponent,
+    SuccessComponent
   ],
   imports: [
     CommonModule,
