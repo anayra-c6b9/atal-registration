@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "https://anayra-c6b9.github.io/atal-registration/",
+            "baseHref": "https://anayra-c6b9.github.io",
             "outputPath": "dist/atal-form-project",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -99,6 +99,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
