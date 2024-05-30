@@ -1,5 +1,5 @@
 export const environment = {
-    API_BASE: "https://localhost:3000",
+    API_BASE: "https://atal-node.onrender.com",
     REGISTRATION_POST_FORM: "/registration/post-form",
     ALL_EVENT_DATA: "/registration/events",
     EVENT_DATA_BY_ID: "/registration/event-data-by-id",

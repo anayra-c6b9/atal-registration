@@ -12,20 +12,20 @@ export class AuthService {
 
   // get logout
   adminLogoutApi = async () => {
-    const getEvents$ = this._http.get(("http://localhost:3000"+environment.ADMIN_LOGOUT));
+    const getEvents$ = this._http.get((environment.API_BASE+environment.ADMIN_LOGOUT));
 
     return await lastValueFrom(getEvents$);
   }
 
   // post login
   adminLoginApi = async (loginCred: any) => {
-    const postLogin$ = this._http.post("http://localhost:3000"+environment.ADMIN_LOGIN, loginCred);
+    const postLogin$ = this._http.post(environment.API_BASE+environment.ADMIN_LOGIN, loginCred);
 
     return await lastValueFrom(postLogin$);
   }
 
   adminVerify = async () => {
-    const verification$ = this._http.get("http://localhost:3000"+environment.ADMIN_VERIFY, {withCredentials: true});
+    const verification$ = this._http.get(environment.API_BASE+environment.ADMIN_VERIFY, {withCredentials: true});
 
     return await lastValueFrom(verification$);
   }
